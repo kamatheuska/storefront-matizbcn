@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/base.css";
+
+import { type PageMetadata } from "../types";
+
+const metadata: PageMetadata = {
+    title: "Homepage",
+};
+---
+
+<BaseLayout meta={metadata}>
+    <p>test</p>
+</BaseLayout>

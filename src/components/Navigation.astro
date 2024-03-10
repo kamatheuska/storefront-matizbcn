@@ -1,0 +1,23 @@
+---
+const navLinks = [
+    {
+        href: "/partnerships",
+        label: "ART COLLABS",
+    },
+];
+---
+
+<header>
+    <nav>
+        <ion-icon name="heart"></ion-icon>
+        <ul>
+            {
+                navLinks.map((link) => (
+                    <li>
+                        <a href={link.href}>{link.label}</a>
+                    </li>
+                ))
+            }
+        </ul>
+    </nav>
+</header>
