@@ -4,20 +4,76 @@ const navLinks = [
         href: "/partnerships",
         label: "ART COLLABS",
     },
+    {
+        href: "/artists",
+        label: "ARTISTS",
+    },
+    {
+        href: "/exhibitions",
+        label: "EXHIBITIONS",
+    },
+    {
+        href: "/space-for-rent",
+        label: "SPACE FOR RENT",
+    },
+    {
+        href: "/contact",
+        label: "CONTACT",
+    },
 ];
 ---
 
-<header>
-    <nav>
-        <ion-icon name="heart"></ion-icon>
-        <ul>
-            {
-                navLinks.map((link) => (
-                    <li>
-                        <a href={link.href}>{link.label}</a>
-                    </li>
-                ))
-            }
-        </ul>
-    </nav>
-</header>
+<style>
+    ion-icon {
+        --ionicon-stroke-width: 16px;
+    }
+</style>
+
+<script>
+    document.querySelector("[data-menu-toggle]")?.addEventListener("click", () => {
+        document.querySelector("[data-el-menu]")?.classList.toggle("-translate-x-10");
+        document.querySelector("[data-el-menu]")?.classList.toggle("-translate-x-full");
+    });
+</script>
+
+<div class="mx-auto max-w-[var(--page-width)]">
+    <header class="px-40 py-3 flex justify-between items-center md:items-end">
+        <a href="/">
+            <img src="/logo.png" alt="MATIZ GALLERY" width="60" height="60.0" />
+        </a>
+        <nav class="hidden md:block">
+            <ul class="flex gap-10 items-end">
+                {
+                    navLinks.map((link) => (
+                        <li>
+                            <a class="text-3xl font-bold" href={link.href}>
+                                {link.label}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </nav>
+        <button class="w-20 h-20 grid place-items-center rounded text-7xl md:hidden" data-menu-toggle>
+            <ion-icon name="menu-outline" aria-label="Menu" id="menu-icon"></ion-icon>
+        </button>
+        <div
+            data-el-menu
+            class="h-full top-32 md:hidden absolute w-[calc(100%-4rem)] bg-white -translate-x-full transition-transform"
+        >
+            <nav class="py-20">
+                <ul class="flex flex-col gap-5">
+                    {
+                        navLinks.map((link) => (
+                            <li>
+                                <a class="text-3xl flex items-center py-4 px-16" href={link.href}>
+                                    {link.label}
+                                </a>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </nav>
+        </div>
+    </header>
+</div>

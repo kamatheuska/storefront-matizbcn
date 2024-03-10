@@ -7,5 +7,4 @@ export default {
             sans: ["'Work Sans'"],
         },
     },
-    plugins: [],
 };

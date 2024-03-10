@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+    :root {
+        --page-width: 160rem;
+    }
+    html {
+        font-size: 10px;
+    }
     @font-face {
         font-family: "Work Sans";
         src: url("/fonts/WorkSans/WorkSans-ExtraBold.woff2") format("woff2"),

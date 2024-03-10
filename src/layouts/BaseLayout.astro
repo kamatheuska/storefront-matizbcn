@@ -17,12 +17,12 @@ const { meta } = Astro.props;
         <meta name="generator" content={Astro.generator} />
         <title>{meta.title}</title>
     </head>
-    <body>
+    <body class="pt-10">
         <Navigation />
         <slot />
 
         <!-- Ionic Icons -->
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script is:inline type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script is:inline nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </body>
 </html>
