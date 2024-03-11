@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .btn-secondary {
+        --color-button: 255, 255, 255;
+        --color-button-text: 255, 255, 255;
+        --alpha-button-background: 0;
+        --buttons-border-width: 1px;
+
+        @apply text-white text-2xl md:text-3xl flex items-center border-2 px-12 py-8 rounded-full font-semibold text-center justify-center tracking-[2px];
+        background-color: rgba(var(--color-button), var(--alpha-button-background));
+        min-width: calc(12rem + var(--buttons-border-width) * 2);
+        min-height: calc(4.5rem + var(--buttons-border-width) * 2);
+    }
+}
+
 @layer base {
     :root {
         --page-width: 160rem;
@@ -9,6 +23,33 @@
     html {
         font-size: 10px;
     }
+
+    /*
+    * Headings
+    */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        @apply font-sans font-black;
+        letter-spacing: 0.6px;
+        line-height: calc(1 + 0.3 / 1);
+        word-break: break-word;
+    }
+
+    h1 {
+        @apply text-2xl md:text-3xl;
+    }
+
+    h2 {
+        @apply text-6xl md:text-8xl;
+    }
+
+    /*
+    * Fonts
+    */
+
     @font-face {
         font-family: "Work Sans";
         src: url("/fonts/WorkSans/WorkSans-ExtraBold.woff2") format("woff2"),
