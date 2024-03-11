@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Banner from "../components/Banner.astro";
 import "../styles/base.css";
 
 import { type PageMetadata } from "../types";
@@ -10,5 +11,9 @@ const metadata: PageMetadata = {
 ---
 
 <BaseLayout meta={metadata}>
-    <p>test</p>
+    <main>
+        <section>
+            <Banner />
+        </section>
+    </main>
 </BaseLayout>

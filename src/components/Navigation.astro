@@ -31,13 +31,14 @@ const navLinks = [
 
 <script>
     document.querySelector("[data-menu-toggle]")?.addEventListener("click", () => {
-        document.querySelector("[data-el-menu]")?.classList.toggle("-translate-x-10");
+        document.querySelector("[data-el-menu]")?.classList.toggle("invisible");
+        document.querySelector("[data-el-menu]")?.classList.toggle("-translate-x-20");
         document.querySelector("[data-el-menu]")?.classList.toggle("-translate-x-full");
     });
 </script>
 
 <div class="mx-auto max-w-[var(--page-width)]">
-    <header class="px-40 py-3 flex justify-between items-center md:items-end">
+    <header class="px-10 md:px-20 py-10 md:pb-14 flex justify-between items-center md:items-end">
         <a href="/">
             <img src="/logo.png" alt="MATIZ GALLERY" width="60" height="60.0" />
         </a>
@@ -59,7 +60,7 @@ const navLinks = [
         </button>
         <div
             data-el-menu
-            class="h-full top-32 md:hidden absolute w-[calc(100%-4rem)] bg-white -translate-x-full transition-transform"
+            class="h-full top-40 invisible md:hidden absolute w-[calc(100%-4rem)] bg-white -translate-x-full transition-transform transition-[visibility]"
         >
             <nav class="py-20">
                 <ul class="flex flex-col gap-5">
