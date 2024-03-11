@@ -43,7 +43,7 @@
     }
 
     h2 {
-        @apply text-6xl md:text-8xl;
+        @apply text-6xl md:text-[52px];
     }
 
     /*
