@@ -1,14 +1,14 @@
+---
+import { Image } from "astro:assets";
+---
+
 <div class="min-h-[72rem] flex flex-row flex-wrap relative md:items-end">
     <div class="h-full w-full absolute left-0 top-0">
-        <img
-            src="//matizbcn.com/cdn/shop/files/02-6500-120x120-ALEX-VOINEA.jpg?v=1689788165&width=1500"
+        <Image
+            class="card-image"
+            src="https://matizbcn.com/cdn/shop/files/02-6500-120x120-ALEX-VOINEA.jpg"
             alt="Alex Voinea Acrylic painting art matiz gallery shipping worldwide"
-            srcset="//matizbcn.com/cdn/shop/files/02-6500-120x120-ALEX-VOINEA.jpg?v=1689788165&width=375 375w, //matizbcn.com/cdn/shop/files/02-6500-120x120-ALEX-VOINEA.jpg?v=1689788165&width=550 550w, //matizbcn.com/cdn/shop/files/02-6500-120x120-ALEX-VOINEA.jpg?v=1689788165&width=750 750w, //matizbcn.com/cdn/shop/files/02-6500-120x120-ALEX-VOINEA.jpg?v=1689788165&width=1100 1100w, //matizbcn.com/cdn/shop/files/02-6500-120x120-ALEX-VOINEA.jpg?v=1689788165&width=1500 1500w"
-            width="3000"
-            height="4000.0"
-            loading="lazy"
-            sizes="100vw"
-            class="block max-w-full absolute top-0 left-0 h-full w-full object-cover object-center"
+            inferSize
         />
     </div>
     <div
