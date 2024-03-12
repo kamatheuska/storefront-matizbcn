@@ -1,24 +1,39 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Banner from "../components/Banner.astro";
+import TextCard from "../components/TextCard.astro";
+
 import "../styles/base.css";
 
 import { type PageMetadata } from "../types";
 
+import { getNewsMock } from "../mocks/news.mocks";
+
 const metadata: PageMetadata = {
     title: "Homepage",
 };
+
+const newsCards = getNewsMock();
 ---
 
 <BaseLayout meta={metadata}>
-    <main>
+    <main class="px-10">
         <section>
             <Banner />
         </section>
         <section class="mt-20 pt-24">
-            <div>
-                <h2>News, Exhibitions</h2>
+            <div class="my-12 md:my-20">
+                <h2 class="break-words">News, Exhibitions</h2>
             </div>
+            <ul class="md:grid md:grid-cols-4 md:gap-14">
+                {
+                    newsCards.map((card) => (
+                        <li>
+                            <TextCard {...card} />
+                        </li>
+                    ))
+                }
+            </ul>
         </section>
     </main>
 </BaseLayout>
