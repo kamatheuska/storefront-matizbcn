@@ -69,14 +69,17 @@ const firstLineBlocks: FooterBlock[] = [address, schedule, credits];
 const socialItems = [
     {
         link: "https://www.pinterest.es/MatizGallery/",
+        ariaLabel: "Pinterest Link",
         icon: "logo-pinterest",
     },
     {
         link: "https://www.instagram.com/matiz_bcn/",
+        ariaLabel: "Instagram Link",
         icon: "logo-instagram",
     },
     {
         link: "https://www.youtube.com/channel/UCqDOawfk3AyH74HBMHBZ7iQ",
+        ariaLabel: "Youtube Link",
         icon: "logo-youtube",
     },
 ];
@@ -141,6 +144,7 @@ const socialItems = [
                             class="w-full min-w-28 h-[4.5rem] bg-white border border-black focus:border-black focus:ring-1 focus:ring-black text-2xl outline-none text-gray-700 py-6 pl-6 pr-20 leading-8 transition-colors duration-200 ease-in-out"
                         />
                         <button
+                            aria-label="Send email button"
                             class="w-[4.5rem] h-[4.5rem] m-0 absolute cursor-pointer p-0 right-1 top-1 text-2xl text-gray-500"
                         >
                             <ion-icon name="arrow-forward-outline"></ion-icon>
@@ -152,7 +156,7 @@ const socialItems = [
                 {
                     socialItems.map((item) => (
                         <li>
-                            <a href={item.link} class="text-black text-4xl p-6">
+                            <a aria-label={item.ariaLabel} href={item.link} class="text-black text-4xl p-6">
                                 <ion-icon name={item.icon} />
                             </a>
                         </li>
