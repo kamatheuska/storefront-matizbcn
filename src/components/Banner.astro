@@ -1,12 +1,23 @@
 ---
 import { Image } from "astro:assets";
+
+const basePath = "https://res.cloudinary.com/dbe5isal1/image/upload";
+const imageName = "02-6500-120x120-ALEX-VOINEA_trhqex.jpg";
 ---
 
 <div class="min-h-[72rem] flex flex-row flex-wrap relative md:items-end">
     <div class="h-full w-full absolute left-0 top-0">
         <Image
             class="card-image"
-            src="https://matizbcn.com/cdn/shop/files/02-6500-120x120-ALEX-VOINEA.jpg"
+            src={`${basePath}/q_auto,f_auto,c_limit,w_400/${imageName}`}
+            loading={"eager"}
+            srcset={`
+                ${basePath}/q_auto,f_auto,c_limit,w_375/${imageName} 375w,
+                ${basePath}/q_auto,f_auto,c_limit,w_550/${imageName} 550w, 
+                ${basePath}/q_auto,f_auto,c_limit,w_750/${imageName} 750w, 
+                ${basePath}/q_auto,f_auto,c_limit,w_1100/${imageName} 1100w,
+                ${basePath}/q_auto,f_auto,c_limit,w_1500/${imageName} 1500w,
+            `}
             alt="Alex Voinea Acrylic painting art matiz gallery shipping worldwide"
             inferSize
         />
