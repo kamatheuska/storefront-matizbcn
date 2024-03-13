@@ -14,14 +14,20 @@
         min-width: calc(12rem + var(--buttons-border-width) * 2);
         min-height: calc(4.5rem + var(--buttons-border-width) * 2);
     }
+
+    .card-image {
+        @apply block max-w-full absolute top-0 left-0 h-full w-full object-cover object-center;
+    }
 }
 
 @layer base {
     :root {
         --page-width: 160rem;
+        --color-base-text: 18, 18, 18;
     }
     html {
         font-size: 10px;
+        line-height: 1.5;
     }
 
     /*
@@ -43,9 +49,12 @@
     }
 
     h2 {
-        @apply text-6xl md:text-[52px];
+        @apply text-6xl md:text-[52px] leading-[52px];
     }
 
+    p {
+        @apply text-2xl tracking-wider leading-10;
+    }
     /*
     * Fonts
     */

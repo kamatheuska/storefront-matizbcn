@@ -1,0 +1,164 @@
+---
+import { Image } from "astro:assets";
+
+interface FooterBlock {
+    label: string;
+    lines: Array<{
+        text: string;
+        link: string;
+    }>;
+}
+
+const address: FooterBlock = {
+    label: "Address",
+    lines: [
+        {
+            text: "Carrer de Sant Pere Més Alt 48",
+            link: "https://www.google.com/search?q=matiz+bcn",
+        },
+        {
+            text: "L-1, 08003 Barcelona",
+            link: "https://www.google.com/search?q=matiz+bcn",
+        },
+    ],
+};
+
+const schedule: FooterBlock = {
+    label: "Tuesday to Saturday",
+    lines: [
+        {
+            text: "11:00 - 14:00",
+            link: "https://www.google.com/search?q=matiz+bcn",
+        },
+        {
+            text: "16:00 - 20:00",
+            link: "https://www.google.com/search?q=matiz+bcn",
+        },
+    ],
+};
+
+const credits: FooterBlock = {
+    label: "Website by",
+    lines: [
+        {
+            text: "Nicolas Ramirez",
+            link: "https://nicolasramirez.dev",
+        },
+        {
+            text: "Haipox",
+            link: "https://www.instagram.com/haipox/",
+        },
+    ],
+};
+
+const logoBlock = {
+    image: {
+        src: "https://matizbcn.com/cdn/shop/files/Logo_GACLow1_1.jpg",
+        alt: "Logo GAC",
+    },
+};
+
+const suscription = {
+    label: "Subscribe to our emails",
+};
+
+const associationCreditBlock = {
+    html: "Member of the art gallery association of Catalunya <strong>GAC</strong>",
+};
+const firstLineBlocks: FooterBlock[] = [address, schedule, credits];
+const socialItems = [
+    {
+        link: "https://www.pinterest.es/MatizGallery/",
+        icon: "logo-pinterest",
+    },
+    {
+        link: "https://www.instagram.com/matiz_bcn/",
+        icon: "logo-instagram",
+    },
+    {
+        link: "https://www.youtube.com/channel/UCqDOawfk3AyH74HBMHBZ7iQ",
+        icon: "logo-youtube",
+    },
+];
+---
+
+<style>
+    ion-icon {
+        --ionicon-stroke-width: 10px;
+    }
+</style>
+
+<footer class="pt-11 mt-14 md:py-14 md:mt-20 md:y border-t border-[rgba(18, 18, 18, 0.08)]">
+    <div class="px-16 pb-20 md:px-20">
+        <div class="grid gap-16 md:grid-cols-6">
+            {
+                firstLineBlocks.map((block) => (
+                    <div class="col-span-2">
+                        <h2 class="text-3xl mb-8 font-normal">{block.label}</h2>
+                        {block.lines && (
+                            <ul>
+                                {block.lines.map((line) => (
+                                    <li>
+                                        <a
+                                            class="inline-block text-2xl py-4 leading-10 hover:underline tracking-wider"
+                                            href={line.link}
+                                        >
+                                            {line.text}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
+                ))
+            }
+            <div class="col-span-3">
+                {
+                    logoBlock.image && (
+                        <Image
+                            class="max-w-[min(100%,100px)]"
+                            src={logoBlock.image.src}
+                            alt={logoBlock.image.alt}
+                            inferSize
+                        />
+                    )
+                }
+            </div>
+            <div class="col-span-3">
+                <p set:html={associationCreditBlock.html} />
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row flex-nowrap mt-12 justify-between md:items-end">
+            <div class="flex-1 basis-full">
+                <h2 class="text-3xl mb-8 font-normal">{suscription.label}</h2>
+                <form action="" class="text-gray-600 body-font relative max-w-[36rem]">
+                    <div class="relative">
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Email"
+                            class="w-full min-w-28 h-[4.5rem] bg-white border border-black focus:border-black focus:ring-1 focus:ring-black text-2xl outline-none text-gray-700 py-6 pl-6 pr-20 leading-8 transition-colors duration-200 ease-in-out"
+                        />
+                        <button
+                            class="w-[4.5rem] h-[4.5rem] m-0 absolute cursor-pointer p-0 right-1 top-1 text-2xl text-gray-500"
+                        >
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <ul class="flex flex-1 flex-wrap justify-center mt-12 md:mt-0 md:justify-end basis-full">
+                {
+                    socialItems.map((item) => (
+                        <li>
+                            <a href={item.link} class="text-black text-4xl p-6">
+                                <ion-icon name={item.icon} />
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </div>
+</footer>

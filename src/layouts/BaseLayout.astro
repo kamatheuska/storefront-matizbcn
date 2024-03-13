@@ -2,6 +2,7 @@
 import "../styles/base.css";
 import { type PageMetadata } from "../types";
 import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
 interface Props {
     meta: PageMetadata;
 }
@@ -20,6 +21,7 @@ const { meta } = Astro.props;
     <body class="md:p-12">
         <Navigation />
         <slot />
+        <Footer />
 
         <!-- Ionic Icons -->
         <script is:inline type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
